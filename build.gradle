@@ -7,6 +7,7 @@
 
 buildscript {
     ext.kotlin_version = '1.2.31'
+    ext.ktor_version = '0.9.1'
 
     repositories {
         mavenCentral()
@@ -25,11 +26,14 @@ mainClassName = 'MainKt'
 defaultTasks 'run'
 
 repositories {
-  mavenCentral()
+    mavenCentral()
+    maven { url "https://dl.bintray.com/kotlin/kotlinx" }
+    maven { url "https://dl.bintray.com/kotlin/ktor" }
 }
 
 dependencies {
   compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+  compile "io.ktor:ktor-server-netty:$ktor_version"
   testCompile 'junit:junit:4.11'
   testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
 }
